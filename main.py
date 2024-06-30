@@ -1,10 +1,11 @@
+#use pip to download (or pycharm config)
 import requests
 import threading
 
-# Define the URL of the scammer (or a testing endpoint like httpbin)
+#actual address is niblings.vercel.app (i hope its down now, if its not dont go there lul)
 url = 'https://script.google.com/macros/s/AKfycbzllJRl0OcyfnwZIYCoscUPmEpWtnXDdwBBkF48CyvQmaxs_MM872VCqooK86XUC-Cw/exec'
 
-# Function to generate fake data
+#Send in the data
 def generate_fake_data():
     return {
         'USER': "gaylord9000",
@@ -22,7 +23,7 @@ def generate_fake_data():
 
     }
 
-# Function to send fake data
+#sends in the data
 def send_fake_data(url, data):
     try:
         response = requests.post(url, data=data)
@@ -32,7 +33,7 @@ def send_fake_data(url, data):
         print(f'An error occurred: {e}')
 
 
-
+#infinite loop to fuck em up
 def fuckemup():
     while True:
         fake_data = generate_fake_data()
@@ -41,10 +42,10 @@ def fuckemup():
 
 
 
-
+#threading to go faster
 threads = []
 
-
+#loop goes into threads, i let this run for about an hour thirty, about 12,500 requests of fake data sent 
 for i in range(100):
     t = threading.Thread(target=fuckemup)
     t.daemon = True
@@ -56,4 +57,5 @@ for i in range (100):
 for i in range (100):
     threads[i].join()
 
-
+#code in collaboration with chatgpt lol
+#inspired by an engineering man vid
